@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import '../styles/styles.css';
+
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -18,13 +20,15 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
+    <div className="products-container">
       {products.map((product) => (
-        <div key={product._id} className="bg-white shadow rounded p-4">
-          <img src={product.image} alt={product.name} className="w-full h-40 object-cover mb-4" />
-          <h3 className="text-lg font-bold">{product.name}</h3>
-          <p>{product.description}</p>
-          <p className="text-blue-500">${product.price}</p>
+        <div key={product._id} className="product-card">
+          <img src={product.image} alt={product.name} />
+          <div className="product-card-content">
+            <h3>{product.name}</h3>
+            <p>{product.description}</p>
+            <p className="price">${product.price}</p>
+          </div>
         </div>
       ))}
     </div>

@@ -1,0 +1,143 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container Styles */
+  .upload-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form Styles */
+  .upload-container h2 {
+    text-align: center;
+    color: #333333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .upload-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .upload-container input,
+  .upload-container textarea,
+  .upload-container select,
+  .upload-container button {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .upload-container input:focus,
+  .upload-container textarea:focus,
+  .upload-container select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .upload-container textarea {
+    resize: none;
+    height: 100px;
+  }
+  
+  .upload-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .upload-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Message Styles */
+  .upload-message {
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .upload-message.success {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  .upload-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+
+  
+
+
+
+
+  /* General Container */
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+  }
+  
+  /* Individual Product Card */
+  .product-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Image Styles */
+  .product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  /* Content Styles */
+  .product-card-content {
+    padding: 15px;
+    text-align: left;
+  }
+  
+  .product-card-content h3 {
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 10px;
+  }
+  
+  .product-card-content p {
+    font-size: 14px;
+    color: #555555;
+    margin-bottom: 5px;
+  }
+  
+  .product-card-content .price {
+    color: #007bff;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  

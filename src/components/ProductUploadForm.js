@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../styles/styles.css';
+
 
 const ProductUploadForm = () => {
   const [formData, setFormData] = useState({
@@ -43,8 +45,8 @@ const ProductUploadForm = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white p-6 shadow rounded">
-      <h2 className="text-2xl font-bold mb-4">Upload Product</h2>
+    <div className="upload-container">
+      <h2>Upload Product</h2>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <input
           type="text"
@@ -52,14 +54,12 @@ const ProductUploadForm = () => {
           placeholder="Product Name"
           onChange={handleChange}
           required
-          className="w-full p-2 mb-4 border rounded"
         />
         <textarea
           name="description"
           placeholder="Product Description"
           onChange={handleChange}
           required
-          className="w-full p-2 mb-4 border rounded"
         />
         <input
           type="number"
@@ -67,14 +67,8 @@ const ProductUploadForm = () => {
           placeholder="Product Price"
           onChange={handleChange}
           required
-          className="w-full p-2 mb-4 border rounded"
         />
-        <select
-          name="category"
-          onChange={handleChange}
-          required
-          className="w-full p-2 mb-4 border rounded"
-        >
+        <select name="category" onChange={handleChange} required>
           <option value="">Select Category</option>
           <option value="Electronics">Electronics</option>
           <option value="Clothing">Clothing</option>
@@ -82,25 +76,11 @@ const ProductUploadForm = () => {
           <option value="Furniture">Furniture</option>
           <option value="Other">Other</option>
         </select>
-        <input
-          type="file"
-          name="image"
-          onChange={handleChange}
-          required
-          className="w-full p-2 mb-4 border rounded"
-        />
-        <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded">
-          Upload Product
-        </button>
+        <input type="file" name="image" onChange={handleChange} required />
+        <button type="submit">Upload Product</button>
       </form>
       {message && (
-        <p
-          className={`mt-2 text-center ${
-            message.type === 'success' ? 'text-green-500' : 'text-red-500'
-          }`}
-        >
-          {message.text}
-        </p>
+        <p className={`upload-message ${message.type}`}>{message.text}</p>
       )}
     </div>
   );
