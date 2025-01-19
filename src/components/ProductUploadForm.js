@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/styles.css';
 
-
 const ProductUploadForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     description: '',
     price: '',
     category: '',
+    link: '', // New field for product link
+    modeDescription: '', // New field for mode description
     image: null,
   });
   const [message, setMessage] = useState('');
@@ -58,6 +59,19 @@ const ProductUploadForm = () => {
         <textarea
           name="description"
           placeholder="Product Description"
+          onChange={handleChange}
+          required
+        />
+        <textarea
+          name="modeDescription" // New input for mode description
+          placeholder="Mode Description"
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="link" // New input for product link
+          placeholder="Product Link"
           onChange={handleChange}
           required
         />

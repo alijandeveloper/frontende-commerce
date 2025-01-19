@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/styles.css';
 
-
 const Home = () => {
   const [products, setProducts] = useState([]);
 
@@ -27,7 +26,14 @@ const Home = () => {
           <div className="product-card-content">
             <h3>{product.name}</h3>
             <p>{product.description}</p>
+            <p>{product.modeDescription}</p> {/* Display mode description */}
             <p className="price">${product.price}</p>
+            <button
+              className="link-button"
+              onClick={() => window.open(product.link, '_blank')} // Open product link in new tab
+            >
+              View Product
+            </button>
           </div>
         </div>
       ))}
