@@ -84,60 +84,168 @@ body {
   
 
 
-
-
-  /* General Container */
+/* General Container */
 .products-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    background-color: #f8f9fa;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Grid with minimum column size */
+  gap: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+/* Individual Product Card */
+.product-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Image Styles */
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Content Styles */
+.product-card-content {
+  padding: 6px 10px;
+  text-align: left;
+}
+
+.product-card-content h3 {
+  font-size: 18px;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.product-card-content p {
+  font-size: 14px;
+  color: #555555;
+  margin-bottom: 5px;
+}
+
+.product-card-content .price {
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* Rating Stars */
+.star {
+  font-size: 1.5rem;
+  color: #d3d3d3; /* Gray for empty stars */
+  margin-right: 2px;
+}
+
+.star.filled {
+  color: gold; /* Golden color for full stars */
+}
+
+.star.half-filled {
+  color: gold; /* Golden color for half stars */
+  opacity: 0.5;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+}
+
+/* Button Styles */
+.btnn {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.btnn button {
+  font-size: 13px;
+  padding: 0.5em 1em;
+  border: transparent;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  background: dodgerblue;
+  color: white;
+  border-radius: 4px;
+}
+
+button:hover {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(30, 144, 255, 1) 0%, rgba(0, 212, 255, 1) 100%);
+}
+
+button:active {
+  transform: translate(0em, 0.2em);
+}
+
+/* Mobile-First Adjustments - Smaller screens */
+@media screen and (max-width: 768px) {
+  .products-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 products per row */
+    padding: 10px;
   }
-  
-  /* Individual Product Card */
+
   .product-card {
-    background: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.2s ease;
+    padding: 8px;
   }
-  
-  .product-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  /* Image Styles */
-  .product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 1px solid #e0e0e0;
-  }
-  
-  /* Content Styles */
-  .product-card-content {
-    padding: 15px;
-    text-align: left;
-  }
-  
+
   .product-card-content h3 {
-    font-size: 18px;
-    color: #333333;
-    margin-bottom: 10px;
+    font-size: 16px; /* Smaller title on mobile */
   }
-  
+
   .product-card-content p {
-    font-size: 14px;
-    color: #555555;
-    margin-bottom: 5px;
+    font-size: 12px; /* Smaller text on mobile */
   }
-  
+
   .product-card-content .price {
-    color: #007bff;
-    font-weight: bold;
-    margin-top: 10px;
+    font-size: 14px; /* Slightly smaller price */
   }
-  
+
+  .btnn button {
+    font-size: 12px; /* Smaller buttons */
+    padding: 0.4em 0.8em;
+  }
+}
+
+/* Extra Small Mobile Devices */
+@media screen and (max-width: 480px) {
+  .products-container {
+    grid-template-columns: 1fr; /* 1 product per row */
+    padding: 5px;
+  }
+
+  .product-card {
+    padding: 5px;
+  }
+
+  .product-card-content h3 {
+    font-size: 14px; /* Even smaller title */
+  }
+
+  .product-card-content p {
+    font-size: 12px; /* Smaller text */
+  }
+
+  .product-card-content .price {
+    font-size: 13px; /* Slightly smaller price */
+  }
+
+  .btnn button {
+    font-size: 11px; /* Even smaller buttons */
+    padding: 0.3em 0.6em;
+  }
+
+  .product-card img {
+    height: 150px; /* Smaller image size on mobile */
+  }
+}
