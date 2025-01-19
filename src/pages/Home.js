@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import '../styles/styles.css';
 
 const Home = () => {
@@ -22,11 +23,9 @@ const Home = () => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
       if (rating >= i) {
-        stars.push(<span key={i} className="star filled">★</span>); // Full star
-      } else if (rating > i - 1 && rating < i) {
-        stars.push(<span key={i} className="star half-filled">★</span>); // Half star
+        stars.push(<span key={i} className="star filled">★</span>); 
       } else {
-        stars.push(<span key={i} className="star">★</span>); // Empty star
+        stars.push(<span key={i} className="star">★</span>);
       }
     }
     return stars;
@@ -42,11 +41,13 @@ const Home = () => {
             <p>{product.description}</p>
             <p className="price">${product.price}</p>
             <p className="rating">
-              <span>Rating: </span>{renderStars(product.rating)} {/* Display stars */}
+              <span>Rating: </span>{renderStars(product.rating)}
             </p>
-            <div className='btnn'>
-            <button onClick={() => window.open(product.link, '_blank')}>Get Now</button>
-            <button onClick={() => alert(`Details of ${product.name}`)}>More Details</button>
+            <div className="btnn">
+              <button onClick={() => window.open(product.link, '_blank')}>Get Now</button>
+              <Link to={`/product/${product._id}`}>
+                <button>More Details</button>
+              </Link>
             </div>
           </div>
         </div>

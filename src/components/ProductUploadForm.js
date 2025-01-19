@@ -10,15 +10,17 @@ const ProductUploadForm = () => {
     category: '',
     link: '',
     modeDescription: '',
-    rating: '', // Add a field for rating
+    rating: '', 
     image: null,
+    image2: null,
+    image3: null,
   });
   const [message, setMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-    if (name === 'image') {
-      setFormData({ ...formData, image: files[0] });
+    if (name.startsWith('image')) {
+      setFormData({ ...formData, [name]: files[0] });  // Store the file
     } else {
       setFormData({ ...formData, [name]: value });
     }
@@ -27,18 +29,24 @@ const ProductUploadForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage('');
-    try {
-      const form = new FormData();
-      for (const key in formData) {
-        form.append(key, formData[key]);
-      }
+    
+    // Create FormData to send the form data and files
+    const form = new FormData();
+    for (const key in formData) {
+      form.append(key, formData[key]);
+    }
 
+    try {
+      // Sending the POST request to upload the product
       const response = await axios.post('http://localhost:5000/api/products/upload', form, {
-        headers: { 'Content-Type': 'multipart/form-data' },
+        headers: {
+          'Content-Type': 'multipart/form-data', // Ensure the correct Content-Type for file uploads
+        },
       });
 
       setMessage({ type: 'success', text: response.data.message });
     } catch (error) {
+      // Handle errors and display appropriate message
       setMessage({
         type: 'error',
         text: error.response?.data?.message || 'Upload failed',
@@ -64,12 +72,11 @@ const ProductUploadForm = () => {
           required
         />
         <textarea
-          name="modeDescription" // New input for mode description
+          name="modeDescription"
           placeholder="Mode Description"
           onChange={handleChange}
           required
         />
-        {/* Inside the form JSX */}
         <input
           type="number"
           name="rating"
@@ -81,7 +88,7 @@ const ProductUploadForm = () => {
         />
         <input
           type="text"
-          name="link" // New input for product link
+          name="link"
           placeholder="Product Link"
           onChange={handleChange}
           required
@@ -101,7 +108,12 @@ const ProductUploadForm = () => {
           <option value="Furniture">Furniture</option>
           <option value="Other">Other</option>
         </select>
-        <input type="file" name="image" onChange={handleChange} required />
+        
+        {/* Image File Inputs */}
+        <input type="file" name="image" onChange={handleChange} />
+        <input type="file" name="image2" onChange={handleChange} />
+        <input type="file" name="image3" onChange={handleChange} />
+
         <button type="submit">Upload Product</button>
       </form>
       {message && (
