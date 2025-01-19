@@ -8,8 +8,9 @@ const ProductUploadForm = () => {
     description: '',
     price: '',
     category: '',
-    link: '', // New field for product link
-    modeDescription: '', // New field for mode description
+    link: '',
+    modeDescription: '',
+    rating: '', // Add a field for rating
     image: null,
   });
   const [message, setMessage] = useState('');
@@ -66,6 +67,16 @@ const ProductUploadForm = () => {
           name="modeDescription" // New input for mode description
           placeholder="Mode Description"
           onChange={handleChange}
+          required
+        />
+        {/* Inside the form JSX */}
+        <input
+          type="number"
+          name="rating"
+          placeholder="Product Rating (1-5)"
+          onChange={handleChange}
+          min="1"
+          max="5"
           required
         />
         <input

@@ -20,23 +20,19 @@ const Home = () => {
 
   return (
     <div className="products-container">
-      {products.map((product) => (
-        <div key={product._id} className="product-card">
-          <img src={product.image} alt={product.name} />
-          <div className="product-card-content">
-            <h3>{product.name}</h3>
-            <p>{product.description}</p>
-            <p>{product.modeDescription}</p> {/* Display mode description */}
-            <p className="price">${product.price}</p>
-            <button
-              className="link-button"
-              onClick={() => window.open(product.link, '_blank')} // Open product link in new tab
-            >
-              View Product
-            </button>
-          </div>
-        </div>
-      ))}
+     {products.map((product) => (
+  <div key={product._id} className="product-card">
+    <img src={product.image} alt={product.name} />
+    <div className="product-card-content">
+      <h3>{product.name}</h3>
+      <p>{product.description}</p>
+      <p className="price">${product.price}</p>
+      <p className="rating">Rating: {product.rating} / 5</p> {/* Show rating */}
+      <button onClick={() => window.open(product.link, '_blank')}>Visit Product</button>
+      <button onClick={() => alert(`Details of ${product.name}`)}>Product Details</button> {/* Product details */}
+    </div>
+  </div>
+))}
     </div>
   );
 };
