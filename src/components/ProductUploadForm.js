@@ -101,13 +101,19 @@ const ProductUploadForm = () => {
           required
         />
         <select name="category" onChange={handleChange} required>
-          <option value="">Select Category</option>
-          <option value="Electronics">Electronics</option>
-          <option value="Clothing">Clothing</option>
-          <option value="Books">Books</option>
-          <option value="Furniture">Furniture</option>
-          <option value="Other">Other</option>
-        </select>
+  <option value="">Select Category</option>
+  <option value="Electronics">Electronics</option>
+  <option value="Fashion">Fashion</option>
+  <option value="Home Appliances">Home Appliances</option>
+  <option value="Books">Books</option>
+  <option value="Beauty & Health">Beauty & Health</option>
+  <option value="Sports">Sports</option>
+  <option value="Toys">Toys</option>
+  <option value="Automotive">Automotive</option>
+  <option value="Groceries">Groceries</option>
+  <option value="Others">Others</option>
+</select>
+
         
         {/* Image File Inputs */}
         <input type="file" name="image" onChange={handleChange} />
