@@ -1,0 +1,110 @@
+/* General Reset */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+  }
+  
+  /* Product Details Container */
+  .product-details {
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 20px;
+    line-height: 1.6;
+  }
+  
+  /* Product Title */
+  .product-details h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+  }
+  
+  /* Description and Details */
+  .product-details p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  /* Price and Rating */
+  .product-details p span {
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
+  /* Product Images */
+  .product-images {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .product-images img {
+    width: calc(33% - 10px);
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .product-images img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Get Now Button */
+  .product-details a button {
+    display: inline-block;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+  }
+  
+  .product-details a button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+  }
+  
+  .product-details a button:active {
+    background-color: #2471a3;
+    transform: translateY(0);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .product-images {
+      flex-direction: column;
+    }
+  
+    .product-images img {
+      width: 100%;
+    }
+  }
+  /* Star Rating Styles */
+.product-rating {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .product-rating .star {
+    font-size: 1.5rem;
+    color: #f4c542; /* Gold color for stars */
+  }
+  

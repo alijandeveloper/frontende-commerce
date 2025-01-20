@@ -10,7 +10,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductUploadForm />} />
-        <Route path="/product/:id" element={<ProductDetails />} /> {/* Fixed route */}
+        <Route path="/product/:id" element={<ProductDetails />} /> 
       </Routes>
     </Router>
   );
